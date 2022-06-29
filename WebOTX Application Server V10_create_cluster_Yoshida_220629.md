@@ -104,11 +104,11 @@ In this procedure, the active server is defined as N1 node and the standby serve
 +------------------------------------------+
 | Floating IP address |	 192.168.1.111     |
 +------------------------------------------+
-| Virtual host name	  |  webotx1           |
+| Virtual host nam    |  webotx1           |
 +------------------------------------------+
-| Partition	          |  Z:                |
+| Partition	      |  Z:                |
 +------------------------------------------+
-| JNDI server name 	  |  aps1jndi          |
+| JNDI server name    |  aps1jndi          |
 +------------------------------------------+
             Table1. sample value
 ```
@@ -130,7 +130,7 @@ Create a cluster, upload the information file, and then start the cluster from E
 +----------------------------------------------+-------------------+
 |Virtual computer name resource	Resources name | vcom1             |
 +----------------------------------------------+-------------------+
-|Virtual host name	                           | webotx1           |
+|Virtual host name	                       | webotx1           |
 +----------------------------------------------+-------------------+
 |Disk resource	Resources name	               | sd1               |
 +----------------------------------------------+-------------------+
