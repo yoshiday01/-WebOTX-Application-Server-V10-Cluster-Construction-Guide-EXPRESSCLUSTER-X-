@@ -37,8 +37,8 @@ The domain-name.properties (domain1.properties by default) is created in <INSTAL
 ```
 domain.hostname = localhost
 domain.name = domain1						        ← Set the name of the domain
-domain.admin.user = admin 						    ← Set the user name to manage the domain
-domain.admin.password = adminadmin 			    	← Set the password for the domain admin user
+domain.admin.user = admin 				                ← Set the user name to manage the domain
+domain.admin.password = adminadmin 			         	← Set the password for the domain admin user
 domain.admin.port = 6212
 domain.admin.jmxmp.port = 6712
 domain.http.port = 80
@@ -68,7 +68,7 @@ tpsystem.AJPListener.listenerPortNumber = 20102
 ```
 domain.hostname = localhost
 domain.name = domain2 					        	← Set the name of the domain
-domain.admin.user = admin 						    ← Set the user name to manage the domain
+domain.admin.user = admin 					        ← Set the user name to manage the domain
 domain.admin.password = adminadmin					← Set the password for the domain admin user
 domain.admin.port = 16212
 domain.admin.jmxmp.port = 16712
