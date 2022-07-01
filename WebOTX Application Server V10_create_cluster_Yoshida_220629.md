@@ -140,7 +140,7 @@ Create a cluster, upload the information file, and then start the cluster from E
 |				+-------------------+-------------------+
 |                               | script	    | start.bat,stop.bat|
 +-----------------------------------------------------------------------+
-                            Table2. sample value
+                            Table2. sample values
 ```
 
 
