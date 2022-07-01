@@ -1,7 +1,7 @@
 # WebOTX Application Server V10 Cluster Construction Guide  ( EXPRESSCLUSTER X )
 
 ## Preface
-This document describes the procedure for constructing a clustering environment for WebOTX Application Server 10.x ( WebOTX AS) using EXPRESSCLUSTER X 4.x (Windows ,2node Active-standby cluster environment).
+This document describes the procedure for constructing a clustering environment for WebOTX Application Server 10.x (WebOTX AS) using EXPRESSCLUSTER X 4.x (Windows, 2node Active-standby cluster environment).
 
 ## DETERMINING A SYSTEM CONFIGURATION
 ### Applicable software
@@ -22,12 +22,12 @@ Install EXPRESSCLUSTER X and WebOTX AS on each node by following the procedures 
     - Chapter 4 Installing EXPRESSCLUSTER
 - WebOTX Application Server Setup Guide
 
-After installing EXPRESSCLUSTER X 4.x and WebOTX AS, Please create a cluster by follow the procedure.
+After installing EXPRESSCLUSTER X 4.x and WebOTX AS, please create a cluster by following the procedures.
 
 ## Domain creation property file
 The following is a sample of the property file for domain creation (domain name.properties). When creating a domain, note the following:
 
-1.	Set the name of the domain with the domain.name key. The domain name must be unique..
+1.	Set the name of the domain with the domain.name key. The domain name must be unique.
 2.	Make sure that the port numbers used are not the same, including the domain you create separately.
 3.	Change the ID and password for managing the domain as necessary.
 
@@ -36,9 +36,9 @@ The domain-name.properties (domain1.properties by default) is created in <INSTAL
 - domain1.properties
 ```
 domain.hostname = localhost
-domain.name = domain1						        ← Set the name of the domain
-domain.admin.user = admin 				                ← Set the user name to manage the domain
-domain.admin.password = adminadmin 			         	← Set the password for the domain admin user
+domain.name = domain1						        <- Set the name of the domain
+domain.admin.user = admin 				                <- Set the user name to manage the domain
+domain.admin.password = adminadmin 			         	<- Set the password for the domain admin user
 domain.admin.port = 6212
 domain.admin.jmxmp.port = 6712
 domain.http.port = 80
@@ -67,9 +67,9 @@ tpsystem.AJPListener.listenerPortNumber = 20102
 - domain2.properties
 ```
 domain.hostname = localhost
-domain.name = domain2 					        	← Set the name of the domain
-domain.admin.user = admin 					        ← Set the user name to manage the domain
-domain.admin.password = adminadmin					← Set the password for the domain admin user
+domain.name = domain2 					        	<- Set the name of the domain
+domain.admin.user = admin 					        <- Set the user name to manage the domain
+domain.admin.password = adminadmin					<- Set the password for the domain admin user
 domain.admin.port = 16212
 domain.admin.jmxmp.port = 16712
 domain.http.port = 8081
@@ -96,7 +96,7 @@ tpsystem.AJPListener.listenerPortNumber = 30102
 ```
 
 ## Cluster environment construction on Windows (A 2node Active-standby cluster environment)
-This section describes the procedure or constructing a 2 node active-standby cluster environment
+This section describes the procedure for constructing a 2 node active-standby cluster environment.
 In this procedure, the active server is defined as N1 node and the standby server as N2 node.
 ```
 +------------------------------------------+
@@ -110,7 +110,7 @@ In this procedure, the active server is defined as N1 node and the standby serve
 +------------------------------------------+
 | JNDI server name    |  aps1jndi          |
 +------------------------------------------+
-            Table1. sample value
+            Table1. sample values
 ```
 
 ## EXPRESSCLUSTER initial settings
@@ -119,27 +119,27 @@ Refer to the EXPRESSCLUSTER manual to set up a 2 node active-standby cluster env
 - EXPRESSCLUSTER X Installation & Configuration Guide       
     - Chapter 6　Creating the cluster configuration data
 
-Create a cluster, upload the information file, and then start the cluster from EXPRESSCLUSTER Manager.This guide is a shared disk, but you can constructing a mirror disk as well.
+Create a cluster, upload the information file, and then start the cluster from EXPRESSCLUSTER Manager. This guide is a shared disk, but you can constructing a mirror disk as well.
 ```
-+----------------------------------------------+-------------------+
-|Failover group                                |                   |
-+----------------------------------------------+-------------------+
-|Floating IP resources	Resources name         | fip1              |
-+----------------------------------------------+-------------------+
-|IP address 	                               | 192.168.1.111     |
-+----------------------------------------------+-------------------+
-|Virtual computer name resource	Resources name | vcom1             |
-+----------------------------------------------+-------------------+
-|Virtual host name	                       | webotx1           |
-+----------------------------------------------+-------------------+
-|Disk resource	Resources name	               | sd1               |
-+----------------------------------------------+-------------------+
-|drive	                                       | Z:                |
-+----------------------------------------------+-------------------+
-|Script resource Resources name	               | script1           |
-+----------------------------------------------+-------------------+
-|script	                                       | start.bat,stop.bat|
-+------------------------------------------------------------------+
++-----------------------------------------------------------------------+
+|Failover group                                                         |
++-------------------------------+-------------------+-------------------+
+|Floating IP resources          |  Resources name   | fip1              |
+|				+-------------------+-------------------+
+|                               |  IP address 	    | 192.168.1.111     |
++-------------------------------+-------------------+-------------------+
+|Virtual computer name resource | Resources name    | vcom1             |
+|				+-------------------+-------------------+
+|	        		| Virtual host name | webotx1           |
++-------------------------------+-------------------+-------------------+
+|Disk resource	                | Resources name    | sd1               |
+|				+-------------------+-------------------+
+|	                        | drive             | Z:                |
++-------------------------------+-------------------+-------------------+
+|Script resource                | Resources name    | script1           |
+|				+-------------------+-------------------+
+|                               | script	    | start.bat,stop.bat|
++-----------------------------------------------------------------------+
                             Table2. sample value
 ```
 
@@ -165,9 +165,9 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
     	Select [Control Panel] -> [Admin. Tools] -> [Services], and then stop WebOTX AS.
 	- Method B: stopping the service using Command Prompt
 	    
-        net stop “WebOTXAS10.xAgentService”
+       		net stop “WebOTXAS10.xAgentService”
 
-    (Ⅲ) Deletion of domain
+    (III) Deletion of domain
     
     Go to <INSTALL_ROOT> on  the command prompt and run the following command to remove the WebOTX AS domain. The environment variable JAVA_HOME must be set for the installed JDK.
         
@@ -204,7 +204,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
 4. JNDI service settings [N1]
 
-    Select [System] → [System Settings] and change [Attribute Display Level] to "Display Detail Level Information".
+    Select [System] -> [System Settings] and change [Attribute Display Level] to "Display Detail Level Information".
     After that, set [JNDI server identification name] in [Application Server]-> [JNDI Service]-> [General] in the Operation Management Tool to "aps1jndi".
 
 5. Stopping domain [N1]
@@ -298,15 +298,14 @@ call otxadmin stop-domain --force --wait_timeout 300 admin
 
 ## Definition of monitor resource for WebOTX monitoring
 1. The following procedure configures monitoring settings using the WebOTX monitoring resource. If you have not registered the license for the WebOTX monitoring resource of EXPRESSCLUSTER X, register the license from the license manager of EXPRESSCLUSTER X. [N1, N2]
-    ### [Reference product manual]
-    - EXPRESSCLUSTER X Installation & Configuration Guide
- 	Chapter 5　Registering a License
+### [Reference product manual]
+ - EXPRESSCLUSTER X Installation & Configuration Guide
+   - Chapter 5 Registering a License
 2. Refer to the EXPRESSCLUSTER X manual and register the WebOTX monitoring resource.
-    ### [Reference product manual]
-    - EXPRESSCLUSTER X Reference Guide
- 
-        Chapter 4 Monitor Resource Details    
-        　　 Understanding WebOTX monitoring resources
+### [Reference product manual]
+ - EXPRESSCLUSTER X Reference Guide
+   - Chapter 4 Monitor Resource Details
+     - Understanding WebOTX monitoring resources
 
 The user name and password of the WebOTX admin user are set as follows by default.
 
