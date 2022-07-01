@@ -211,9 +211,9 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
     
     In N1, move to <INSTALL_ROOT> on the command prompt and execute the following command to stop domain1 and domain2.
         
-        ¥bin¥otxadmin stop-domain --domaindir Y:¥domains domain1
+        .¥bin¥otxadmin stop-domain --domaindir Y:¥domains domain1
 
-        ¥bin¥otxadmin stop-domain --domaindir Z:¥domains domain2
+        .¥bin¥otxadmin stop-domain --domaindir Z:¥domains domain2
 6. Deleting ObjectBroker name server persistent information [N1]
         
     Please delete the following files.
@@ -224,10 +224,8 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 7. Setting a floating IP address for the transaction service [N1]
 
     Open Z:\domains\domain1\config\TS\jta.conf in an editor and add the following definition under the JTA session.
-command.
 
     	LogicalHostname = "floating IP or virtual hostname"
-command.
 
 8. Register the web server service [N2]
 
@@ -255,9 +253,9 @@ On the [Control Panel]-[Administrative Tools]-[Services] screen, right-click Web
 ## About EXPRESSCLUSTER start / stop script
 Edit the EXPRESSCLUSTER start / stop script and set the monitoring settings.
 1. Edit start / stop script
-Edit the start / stop script by referring to the script resource item described in the EXPRESSCLUSTER X manual.
-Sample script
-The following is a sample script resource to be registered in EXPRESSCLUSTER. Please add the part in bold
+	- Edit the start / stop script by referring to the script resource item described in the EXPRESSCLUSTER X manual.
+- Sample script
+	- The following is a sample script resource to be registered in EXPRESSCLUSTER. Please add the part in bold
 - Start script
 ```
 rem *************
