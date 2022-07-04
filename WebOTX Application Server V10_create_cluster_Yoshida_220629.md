@@ -98,8 +98,8 @@ tpsystem.AJPListener.listenerPortNumber = 30102
 This section describes the procedure for constructing a 2 node active-standby cluster environment.  
 In this procedure, the active server is defined as N1 node and the standby server as N2 node.
 ```
-+------------------------------------------+
-| Failover group name |	 webotx1           |
++----------------------------------------------+
+| Failover group name         |	 webotx1       |
 +----------------------------------------------+
 | Floating IP address         | 192.168.1.111  |
 +----------------------------------------------+
@@ -183,7 +183,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
         .¥lib¥ant¥bin¥ant -f setup.xml -Ddomains.root=Z:¥¥domains setup
     
 
-3. Start domain1
+3. Starting domain1
 
     In N1, move to <INSTALL_ROOT> on the command prompt and execute the following command to start domain1.
 
@@ -200,7 +200,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
 3. Setting a floating IP address setting for TP system [N1]
 
-    Select [TP System] from the tree on the left side of the operation management tool, select [System information] tab and change [Connection server name] and [Host name of name server] to the floating IP address (192.168.1.111).
+    Select [TP System] from the tree on the left side of the WebOTX Administration Tool, select [System information] tab and change [Connection server name] and [Host name of name server] to the floating IP address (192.168.1.111).
 
 4. Setting JNDI service [N1]
 
@@ -225,25 +225,25 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
     	LogicalHostname = "floating IP or virtual hostname"
 
-8. Register the web server service [N2]
+8. Registering the web server service [N2]
 
     If you are using a WebOTX web server, register the WebOTX web server service on N2. Move the failover group to N2 so that you can see the switching partition Z on N2, and then run the following command.
 
     	Z:¥domains¥domain1¥bin¥apachectl INSTALL
 
-9. Create a WebOTX configuration file [N2]
+9. Creating a WebOTX configuration file [N2]
 
     Create a configuration file to operate the WebOTX AS domain on the switching partition from N2. Execute the following command on N2.
 
     	<INSTALL_ROOT>¥lib¥ant¥bin¥ant -f setup.xml -Ddomains.root=Z:¥¥domains setup.env.client setup.env.server
 
-10. Registration of domain information in the TP system [N2]
+10. Registring domain information in the TP system [N2]
 
     Register the domain information on the switching partition to the TP system with N2. On the command prompt, go to <INSTALL_ROOT>\Trnsv\bin and execute the following command. Set the value of the TPM option argument to the domain name.
 
     	contps -i AD TPM=domain1 CAT=Z:¥¥domains¥¥domain1¥¥config¥¥tpsystem WAIT=30
 
-11. Change the method of starting the WebOTX service [N1, N2]
+11. Changing the method of starting the WebOTX service [N1, N2]
 
     Please change the startup method of WebOTX AS 10.x Agent Service to manual on N1 and N2.
 On the [Control Panel]-[Administrative Tools]-[Services] screen, right-click WebOTX AS 10.x Agent Service, select Properties, and then change the startup type to "Manual".
