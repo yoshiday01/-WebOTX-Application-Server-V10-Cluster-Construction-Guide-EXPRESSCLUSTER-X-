@@ -305,5 +305,5 @@ call otxadmin stop-domain --force --wait_timeout 300 admin
 
 The user name and password of the WebOTX admin user are set as follows by default.
 
-    Username: None
-    Password: None
+    Username: admin
+    Password: adminadmin
