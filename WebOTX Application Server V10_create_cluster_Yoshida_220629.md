@@ -1,9 +1,9 @@
 # WebOTX Application Server V10 Cluster Construction Guide  ( EXPRESSCLUSTER X )
 
 ## Preface
-This document describes the procedure for constructing a clustering environment for WebOTX Application Server 10.x (WebOTX AS) using EXPRESSCLUSTER X 4.x (Windows, 2node Active-standby cluster environment).
+This document describes the procedure in order to create a 2 nodes Active-standby cluster of WebOTX Application Server 10.x (WebOTX AS) by EXPRESSCLUSTER X 4 on Windows.
 
-## DETERMINING A SYSTEM CONFIGURATION
+## Determing a system configuration
 ### Applicable software
 OS 
 - Windows Server 2012
@@ -14,8 +14,7 @@ OS
 - EXPRESSCLUSTER X 4.x for Windows
 - Java SE 8/11
 
-## CONFIGURING A CLUSTER SYSTEM
-Installation and preparation for creating a cluster environment
+## Configuring a cluster system
 Install EXPRESSCLUSTER X and WebOTX AS on each node by following the procedures in the product manuals.
 ### [Reference product manual]
 - EXPRESSCLUSTER X Installation & Configuration Guide
@@ -24,10 +23,10 @@ Install EXPRESSCLUSTER X and WebOTX AS on each node by following the procedures 
 
 After installing EXPRESSCLUSTER X 4.x and WebOTX AS, please create a cluster by following the procedures.
 
-## Domain creation property file
-The following is a sample of the property file for domain creation (domain name.properties). When creating a domain, note the following:
+## Properties file for domain creation
+This section describes a sample of the properties file for domain creation (domain name.properties). When creating a domain, note the following:
 
-1.	Set the name of the domain with the domain.name key. The domain name must be unique.
+1.	Set the different port number for each domain to avoid port confliction.
 2.	Make sure that the port numbers used are not the same, including the domain you create separately.
 3.	Change the ID and password for managing the domain as necessary.
 
@@ -37,7 +36,7 @@ The domain-name.properties (domain1.properties by default) is created in <INSTAL
 ```
 domain.hostname = localhost
 domain.name = domain1						        <- Set the name of the domain
-domain.admin.user = admin 				                <- Set the user name to manage the domain
+domain.admin.user = admin 				                <- Set the domain admin user name
 domain.admin.password = adminadmin 			         	<- Set the password for the domain admin user
 domain.admin.port = 6212
 domain.admin.jmxmp.port = 6712
@@ -68,7 +67,7 @@ tpsystem.AJPListener.listenerPortNumber = 20102
 ```
 domain.hostname = localhost
 domain.name = domain2 					        	<- Set the name of the domain
-domain.admin.user = admin 					        <- Set the user name to manage the domain
+domain.admin.user = admin 					        <- Set the domain admin user name
 domain.admin.password = adminadmin					<- Set the password for the domain admin user
 domain.admin.port = 16212
 domain.admin.jmxmp.port = 16712
@@ -96,20 +95,20 @@ tpsystem.AJPListener.listenerPortNumber = 30102
 ```
 
 ## Cluster environment construction on Windows (A 2node Active-standby cluster environment)
-This section describes the procedure for constructing a 2 node active-standby cluster environment.
+This section describes the procedure for constructing a 2 node active-standby cluster environment.  
 In this procedure, the active server is defined as N1 node and the standby server as N2 node.
 ```
 +------------------------------------------+
 | Failover group name |	 webotx1           |
-+------------------------------------------+
-| Floating IP address |	 192.168.1.111     |
-+------------------------------------------+
-| Virtual host nam    |  webotx1           |
-+------------------------------------------+
-| Partition	      |  Z:                |
-+------------------------------------------+
-| JNDI server name    |  aps1jndi          |
-+------------------------------------------+
++----------------------------------------------+
+| Floating IP address         | 192.168.1.111  |
++----------------------------------------------+
+| Virtual host nam            | webotx1        |
++----------------------------------------------+
+| Partition for disk resource | Z:             |
++----------------------------------------------+
+| JNDI server name            | aps1jndi       |
++----------------------------------------------+
             Table1. sample values
 ```
 
@@ -119,7 +118,8 @@ Refer to the EXPRESSCLUSTER manual to set up a 2 node active-standby cluster env
 - EXPRESSCLUSTER X Installation & Configuration Guide       
     - Chapter 6　Creating the cluster configuration data
 
-Create a cluster, upload the information file, and then start the cluster from EXPRESSCLUSTER Manager. This guide is a shared disk, but you can constructing a mirror disk as well.
+Configure a failover group with the following resources cluster, upload the configuration to the cluster and start the cluster with Cluster WebUI.   
+This guide is a shared disk, but you can constructing a mirror disk as well.
 ```
 +-----------------------------------------------------------------------+
 |Failover group                                                         |
@@ -148,26 +148,26 @@ Create a cluster, upload the information file, and then start the cluster from E
 1. Delete WebOTX AS domain [N1, N2]
 After installing WebOTX AS and creating the environment, delete the WebOTX AS domain once to build the cluster environment.
 
-    (I) Stop domain 
+    (I) Stopping domain 
     
     Go to <INSTALL_ROOT> on the command prompt and check the current domain startup status.
         
         .¥bin¥otxadmin list-domains
     If the domain is running, stop it with the following command.
         
-        .¥bin¥otxadmin stop-domain “domain name"
+        .¥bin¥otxadmin stop-domain "domain name"
 
     (II) Stopping the WebOTX AS Agent service
     
     If the WebOTX AS Agent service is running, stop it using one of the following methods.
     - Method A: stopping the service using Windows Services Manager
     
-    	Select [Control Panel] -> [Admin. Tools] -> [Services], and then stop WebOTX AS.
+    	Select [Control Panel] -> [Administrative Tools] -> [Services], and then stop WebOTX AS.
 	- Method B: stopping the service using Command Prompt
 	    
-       		net stop “WebOTXAS10.xAgentService”
+       		net stop "WebOTXAS10.xAgentService"
 
-    (III) Deletion of domain
+    (III)  Deletioning domain
     
     Go to <INSTALL_ROOT> on  the command prompt and run the following command to remove the WebOTX AS domain. The environment variable JAVA_HOME must be set for the installed JDK.
         
@@ -177,7 +177,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
 2. Recreating the WebOTX AS domain1 [N1]
 
-    Create a WebOTX AS domain on the switch partition of disk resource.
+    Create a WebOTX AS domain on the switching partition of disk resource.
     In N1, move to <INSTALL_ROOT> on the command prompt and execute the following command.
 
         .¥lib¥ant¥bin¥ant -f setup.xml -Ddomains.root=Z:¥¥domains setup
@@ -200,12 +200,12 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
 3. Setting a floating IP address setting for TP system [N1]
 
-    Select [TP System] from the tree on the left side of the operation management tool, and select the floating  IP address for "Connection server name" and "Host name of name server" from the setting screen when the [System information] tab on the right screen is selected.
+    Select [TP System] from the tree on the left side of the operation management tool, select [System information] tab and change [Connection server name] and [Host name of name server] to the floating IP address (192.168.1.111).
 
-4. JNDI service settings [N1]
+4. Setting JNDI service [N1]
 
     Select [System] -> [System Settings] and change [Attribute Display Level] to "Display Detail Level Information".
-    After that, set [JNDI server identification name] in [Application Server]-> [JNDI Service]-> [General] in the Operation Management Tool to "aps1jndi".
+    After that, set [JNDI server identification name] in [Application Server]-> [JNDI Service]-> [General] in the WebOTX Administration Tool to "aps1jndi".
 
 5. Stopping domain [N1]
     
@@ -213,13 +213,11 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
         
         .¥bin¥otxadmin stop-domain --domaindir Y:¥domains domain1
 
-        .¥bin¥otxadmin stop-domain --domaindir Z:¥domains domain2
 6. Deleting ObjectBroker name server persistent information [N1]
         
-    Please delete the following files.
+    Delete the following files.
 
     	Z:¥domains¥domain1¥config¥ObjectBroker¥namesv.ndf
-
 
 7. Setting a floating IP address for the transaction service [N1]
 
@@ -229,7 +227,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
 8. Register the web server service [N2]
 
-    If you are using a WebOTX web server, register the WebOTX web server service on N2. Move the failover group to N2 so that you can see the switch partition Z on N2, and then run the following command.
+    If you are using a WebOTX web server, register the WebOTX web server service on N2. Move the failover group to N2 so that you can see the switching partition Z on N2, and then run the following command.
 
     	Z:¥domains¥domain1¥bin¥apachectl INSTALL
 
@@ -241,7 +239,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
 10. Registration of domain information in the TP system [N2]
 
-    Register the domain information on the "switching partition" to the TP system with N2. On the prompt, go to <INSTALL_ROOT>\Trnsv\bin and execute the following command. Set the value of the TPM option argument to the domain name.
+    Register the domain information on the switching partition to the TP system with N2. On the command prompt, go to <INSTALL_ROOT>\Trnsv\bin and execute the following command. Set the value of the TPM option argument to the domain name.
 
     	contps -i AD TPM=domain1 CAT=Z:¥¥domains¥¥domain1¥¥config¥¥tpsystem WAIT=30
 
