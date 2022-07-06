@@ -1,14 +1,15 @@
-# WebOTX Application Server V10 Cluster Construction Guide  ( EXPRESSCLUSTER X )
+# WebOTX Application Server V10 Cluster Construction Guide  (EXPRESSCLUSTER X)
 
 ## Preface
-This document describes the procedure in order to create a 2 nodes Active-standby cluster of WebOTX Application Server 10.x (WebOTX AS) by EXPRESSCLUSTER X 4 on Windows.
+This document describes the procedure in order to create a 2 nodes active-standby cluster of WebOTX Application Server 10.x (WebOTX AS) by EXPRESSCLUSTER X 4 on Windows.
 
 ## Determing a system configuration
 ### Applicable software
 OS 
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012/2012 R2/2016
+
+
+
 ### Other software
 - WebOTX Application Server V10.x
 - EXPRESSCLUSTER X 4.x for Windows
