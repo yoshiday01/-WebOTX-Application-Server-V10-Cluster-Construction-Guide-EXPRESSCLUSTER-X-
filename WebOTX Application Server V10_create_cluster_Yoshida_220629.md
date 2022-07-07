@@ -22,7 +22,7 @@ Install EXPRESSCLUSTER X and WebOTX AS on each node by following the procedures 
     - Chapter 4 Installing EXPRESSCLUSTER
 - WebOTX Application Server Setup Guide
 
-After installing EXPRESSCLUSTER X 4.x and WebOTX AS, please create a cluster by following the procedures.
+After installing EXPRESSCLUSTER X 4.x and WebOTX AS,　create a cluster by following the procedures.
 
 ## Properties file for domain creation
 This section describes a sample of the properties file for domain creation (domain name.properties). When creating a domain, note the following:
@@ -119,15 +119,15 @@ Refer to the EXPRESSCLUSTER manual to set up a 2 node active-standby cluster env
 - EXPRESSCLUSTER X Installation & Configuration Guide       
     - Chapter 6　Creating the cluster configuration data
 
-Configure a failover group with the following resources cluster, upload the configuration to the cluster and start the cluster with Cluster WebUI.   
+Configure a failover group with the following resources for the cluster, upload the configuration to the cluster and start the cluster with Cluster WebUI.   
 This guide is a shared disk, but you can constructing a mirror disk as well.
 ```
 +-----------------------------------------------------------------------+
 |Failover group                                                         |
 +-------------------------------+-------------------+-------------------+
-|Floating IP resources          |  Resources name   | fip1              |
+|Floating IP resources          | Resources name　  | fip1              |
 |				+-------------------+-------------------+
-|                               |  IP address 	    | 192.168.1.111     |
+|                               | IP address 	    | 192.168.1.111     |
 +-------------------------------+-------------------+-------------------+
 |Virtual computer name resource | Resources name    | vcom1             |
 |				+-------------------+-------------------+
@@ -146,7 +146,7 @@ This guide is a shared disk, but you can constructing a mirror disk as well.
 
 
 ## WebOTX AS domain creation
-1. Delete WebOTX AS domain [N1, N2]
+1. Delete WebOTX AS domain [N1, N2]  
 After installing WebOTX AS and creating the environment, delete the WebOTX AS domain once to build the cluster environment.
 
     (I) Stopping domain 
@@ -193,15 +193,15 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 ## WebOTX AS environment settings
 1. Setting the floating IP address for ObjectBroker [N1]
 
-    Select [Application Server]-[ORB Config] from the tree on the left side of the operation management tool. In the [Common] tab, change [NameServiceHostName] and [ExternalHostName] to the floating IP address (192.168.1.111).
+    Select [Application Server]-[ORB Config] from the tree on the left side of WebOTX Administration Tool. In the [Common] tab, change [NameServiceHostName] and [ExternalHostName] to the floating IP address (192.168.1.111).
 
 2. Setting a floating IP address for JMS [N1]
 
-    Select [Application Server]-[JMS service]-[JMS host]-[default_JMS_host] from the tree on the left side of the operation management tool, and change the host name in the [General] tab to the floating  IP address (192.168.1.111).
+    Select [Application Server]-[JMS service]-[JMS host]-[default_JMS_host] from the tree on the left side of WebOTX Administration Tool, and change the host name in the [General] tab to the floating  IP address (192.168.1.111).
 
 3. Setting a floating IP address setting for TP system [N1]
 
-    Select [TP System] from the tree on the left side of the WebOTX Administration Tool, select [System information] tab and change [Connection server name] and [Host name of name server] to the floating IP address (192.168.1.111).
+    Select [TP System] from the tree on the left side of WebOTX Administration Tool, select [System information] tab and change [Connection server name] and [Host name of name server] to the floating IP address (192.168.1.111).
 
 4. Setting JNDI service [N1]
 
@@ -238,7 +238,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
     	<INSTALL_ROOT>¥lib¥ant¥bin¥ant -f setup.xml -Ddomains.root=Z:¥¥domains setup.env.client setup.env.server
 
-10. Registring domain information in the TP system [N2]
+10. Registering domain information in the TP system [N2]
 
     Register the domain information on the switching partition to the TP system with N2. On the command prompt, go to <INSTALL_ROOT>\Trnsv\bin and execute the following command. Set the value of the TPM option argument to the domain name.
 
