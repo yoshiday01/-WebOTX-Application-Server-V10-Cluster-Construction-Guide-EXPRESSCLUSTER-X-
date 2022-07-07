@@ -32,7 +32,7 @@ This section describes a sample of the properties file for domain creation (doma
 2.	Make sure that the port numbers used are not the same, including the domain you create separately.
 3.	Change the ID and password for managing the domain as necessary.
 
-The domain-name.properties (domain1.properties by default) is created in <INSTALL_ROOT> during installation. If you create multiple domains, copy the file for domain creation. Please note the above three points, create the domain creation file, and then create the domains.
+The domain-name.properties (domain1.properties by default) is created in <INSTALL_ROOT> during installation. If you create multiple domains, copy the file for domain creation. Note the above three points, create the domain creation file, and then create the domains.
 
 - domain1.properties
 ```
@@ -121,24 +121,24 @@ Refer to the EXPRESSCLUSTER manual to set up a 2 node active-standby cluster env
     - Chapter 6　Creating the cluster configuration data
 
 Configure a failover group with the following resources for the cluster, upload the configuration to the cluster and start the cluster with Cluster WebUI.   
-This guide is a shared disk, but you can constructing a mirror disk as well.
+This guide assumes a shared disk configuration, but you can configure a mirror disk as well.
 ```
 +-----------------------------------------------------------------------+
 |Failover group                                                         |
 +-------------------------------+-------------------+-------------------+
-|Floating IP resources          | Resources name　  | fip1              |
+|Floating IP resource           | Resource name　   | fip1              |
 |				+-------------------+-------------------+
 |                               | IP address 	    | 192.168.1.111     |
 +-------------------------------+-------------------+-------------------+
-|Virtual computer name resource | Resources name    | vcom1             |
+|Virtual computer name resource | Resource name     | vcom1             |
 |				+-------------------+-------------------+
 |	        		| Virtual host name | webotx1           |
 +-------------------------------+-------------------+-------------------+
-|Disk resource	                | Resources name    | sd1               |
+|Disk resource	                | Resource name     | sd1               |
 |				+-------------------+-------------------+
 |	                        | drive             | Z:                |
 +-------------------------------+-------------------+-------------------+
-|Script resource                | Resources name    | script1           |
+|Script resource                | Resource name     | script1           |
 |				+-------------------+-------------------+
 |                               | script	    | start.bat,stop.bat|
 +-----------------------------------------------------------------------+
@@ -217,7 +217,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
 6. Deleting ObjectBroker name server persistent information [N1]
         
-    Delete the following files.
+    Delete the following file.
 
     	Z:¥domains¥domain1¥config¥ObjectBroker¥namesv.ndf
 
@@ -247,7 +247,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
 11. Changing the method of starting the WebOTX service [N1, N2]
 
-    Please change the startup method of WebOTX AS 10.x Agent Service to manual on N1 and N2.
+    Change the startup method of WebOTX AS 10.x Agent Service to manual on N1 and N2.
 On the [Control Panel]-[Administrative Tools]-[Services] screen, right-click WebOTX AS 10.x Agent Service, select Properties, and then change the startup type to "Manual".
 
 ### About EXPRESSCLUSTER start / stop script
@@ -255,7 +255,7 @@ Edit the EXPRESSCLUSTER start / stop script and set the monitoring settings.
 1. Edit start / stop script
 	- Edit the start / stop script by referring to the script resource item described in the EXPRESSCLUSTER X manual.
 - Sample script
-	- The following is a sample script resource to be registered in EXPRESSCLUSTER. Please add the part in bold
+	- The following is a sample script resource to be registered in EXPRESSCLUSTER. Add the part in bold
 - Start script
 ```
 rem *************
