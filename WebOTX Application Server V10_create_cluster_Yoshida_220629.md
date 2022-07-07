@@ -3,7 +3,7 @@
 ## Preface
 This document describes the procedure in order to create a 2 nodes active-standby cluster of WebOTX Application Server 10.x (WebOTX AS) by EXPRESSCLUSTER X 4 on Windows.
 
-## Determing a system configuration
+## System configuration
 ### Applicable software
 OS 
 - Windows Server 2012/2012 R2/2016
@@ -15,16 +15,17 @@ OS
 - EXPRESSCLUSTER X 4.x for Windows
 - Java SE 8/11
 
-## Configuring a cluster system
+## Setup procedure
+### Configuring a cluster system
 Install EXPRESSCLUSTER X and WebOTX AS on each node by following the procedures in the product manuals.
-### [Reference product manual]
+#### [Reference product manual]
 - EXPRESSCLUSTER X Installation & Configuration Guide
     - Chapter 4 Installing EXPRESSCLUSTER
 - WebOTX Application Server Setup Guide
 
 After installing EXPRESSCLUSTER X 4.x and WebOTX AS,　create a cluster by following the procedures.
 
-## Properties file for domain creation
+### Properties file for domain creation
 This section describes a sample of the properties file for domain creation (domain name.properties). When creating a domain, note the following:
 
 1.	Set the different port number for each domain to avoid port confliction.
@@ -95,7 +96,7 @@ tpsystem.IIOPListener.listenerPortNumber = 15151
 tpsystem.AJPListener.listenerPortNumber = 30102
 ```
 
-## Cluster environment construction on Windows (A 2node Active-standby cluster environment)
+### Cluster environment construction on Windows (A 2node Active-standby cluster environment)
 This section describes the procedure for constructing a 2 node active-standby cluster environment.  
 In this procedure, the active server is defined as N1 node and the standby server as N2 node.
 ```
@@ -113,9 +114,9 @@ In this procedure, the active server is defined as N1 node and the standby serve
             Table1. sample values
 ```
 
-## EXPRESSCLUSTER initial settings
+### EXPRESSCLUSTER initial settings
 Refer to the EXPRESSCLUSTER manual to set up a 2 node active-standby cluster environment. 
-### [Reference product manual]
+#### [Reference product manual]
 - EXPRESSCLUSTER X Installation & Configuration Guide       
     - Chapter 6　Creating the cluster configuration data
 
@@ -145,7 +146,7 @@ This guide is a shared disk, but you can constructing a mirror disk as well.
 ```
 
 
-## WebOTX AS domain creation
+### WebOTX AS domain creation
 1. Delete WebOTX AS domain [N1, N2]  
 After installing WebOTX AS and creating the environment, delete the WebOTX AS domain once to build the cluster environment.
 
@@ -190,7 +191,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
     	.¥bin¥otxadmin start-domain --domaindir Z:¥domains domain1
 
-## WebOTX AS environment settings
+### WebOTX AS environment settings
 1. Setting the floating IP address for ObjectBroker [N1]
 
     Select [Application Server]-[ORB Config] from the tree on the left side of WebOTX Administration Tool. In the [Common] tab, change [NameServiceHostName] and [ExternalHostName] to the floating IP address (192.168.1.111).
@@ -249,7 +250,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
     Please change the startup method of WebOTX AS 10.x Agent Service to manual on N1 and N2.
 On the [Control Panel]-[Administrative Tools]-[Services] screen, right-click WebOTX AS 10.x Agent Service, select Properties, and then change the startup type to "Manual".
 
-## About EXPRESSCLUSTER start / stop script
+### About EXPRESSCLUSTER start / stop script
 Edit the EXPRESSCLUSTER start / stop script and set the monitoring settings.
 1. Edit start / stop script
 	- Edit the start / stop script by referring to the script resource item described in the EXPRESSCLUSTER X manual.
@@ -293,13 +294,13 @@ call otxadmin stop-domain --force --wait_timeout 300 domain1
 call otxadmin stop-domain --force --wait_timeout 300 admin
 ```
 
-## Definition of monitor resource for WebOTX monitoring
+### Definition of monitor resource for WebOTX monitoring
 1. The following procedure configures monitoring settings using the WebOTX monitoring resource. If you have not registered the license for the WebOTX monitoring resource of EXPRESSCLUSTER X, register the license from the license manager of EXPRESSCLUSTER X. [N1, N2]
-### [Reference product manual]
+#### [Reference product manual]
  - EXPRESSCLUSTER X Installation & Configuration Guide
    - Chapter 5 Registering a License
 2. Refer to the EXPRESSCLUSTER X manual and register the WebOTX monitoring resource.
-### [Reference product manual]
+#### [Reference product manual]
  - EXPRESSCLUSTER X Reference Guide
    - Chapter 4 Monitor Resource Details
      - Understanding WebOTX monitoring resources
