@@ -189,7 +189,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
     	.¥bin¥otxadmin start-domain --domaindir Z:¥domains domain1
 
-### Settings WebOTX AS environment  
+### Setting WebOTX AS environment  
 1. Setting the floating IP address for ObjectBroker [N1]
 
     Select [Application Server]-[ORB Config] from the tree on the left side of WebOTX Administration Tool. In the [Common] tab, change [NameServiceHostName] and [ExternalHostName] to the floating IP address (192.168.1.111).
