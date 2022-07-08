@@ -10,7 +10,7 @@ OS
 
 ### Other software
 - WebOTX Application Server V10.x
-- EXPRESSCLUSTER X 4.x for Windows
+- EXPRESSCLUSTER X 4 for Windows
 - Java SE 8/11
 
 ## Setup procedure
@@ -94,7 +94,7 @@ tpsystem.IIOPListener.listenerPortNumber = <b>15151</b>
 tpsystem.AJPListener.listenerPortNumber = <b>30102</b>
 </pre>
 
-### Setting cluster environment construction on Windows (A 2node Active-standby cluster environment)
+### Setting cluster environment construction on Windows (A 2node active-standby cluster environment)
 This section describes the procedure for constructing a 2 node active-standby cluster environment.  
 In this procedure, the active server is defined as N1 node and the standby server as N2 node.
 ```
