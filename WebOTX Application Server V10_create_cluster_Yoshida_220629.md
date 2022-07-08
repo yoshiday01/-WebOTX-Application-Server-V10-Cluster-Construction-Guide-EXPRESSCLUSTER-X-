@@ -174,7 +174,6 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
         .¥bin¥asant -f setup.xml uninstall
     If the WebOTX AS domain has been deleted, "BUILD SUCCESSFUL" will be displayed on the command prompt.
 
-
 2. Recreating the WebOTX AS domain1 [N1]
 
     Create a WebOTX AS domain on the switching partition of disk resource.
@@ -182,7 +181,6 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
         .¥lib¥ant¥bin¥ant -f setup.xml -Ddomains.root=Z:¥¥domains setup
     
-
 3. Starting domain1
 
     In N1, move to <INSTALL_ROOT> on the command prompt and execute the following command to start domain1.
@@ -259,11 +257,11 @@ Edit the EXPRESSCLUSTER start / stop script and set the monitoring settings.
 rem *************
 rem "business normal processing"
 rem *************
-<b><i>
+<b>
 rem "Start WebOTX AS domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin start-domain admin
-</i></b>
+</b>
 rem priority check
 IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
 
@@ -314,7 +312,6 @@ call otxadmin stop-domain --force --wait_timeout 300 admin
    - Chapter 4 Monitor Resource Details
      - Understanding WebOTX monitoring resources
 
-The user name and password of the WebOTX admin user are set as follows by default.
-
-    Username: admin
-    Password: adminadmin
+The user name and password of the WebOTX admin user are set as follows by default.  
+ - Username: admin  
+ - Password: adminadmin  
