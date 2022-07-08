@@ -257,7 +257,7 @@ Edit the EXPRESSCLUSTER start / stop script and set the monitoring settings.
 - Start script
 ```
 rem *************
-rem business normal processing
+rem "business normal processing"
 rem *************
 
 rem "Start WebOTX AS domain"
@@ -268,7 +268,7 @@ rem priority check
 IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
 
 rem *************
-rem Startup and recovery process after failover
+rem "Startup and recovery process after failover"
 rem *************
 rem "Start domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
@@ -278,7 +278,7 @@ call otxadmin start-domain admin
 - Stop script
 ```
 rem *************
-rem Business as usual
+rem "Business as usual"
 rem *************
 rem "Stop WebOTX AS domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
@@ -289,7 +289,7 @@ rem priority check
 IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
 
 rem *************
-rem Startup and recovery process after failover
+rem "Startup and recovery process after failover"
 rem *************
 rem "Shut down WebOTX AS domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
