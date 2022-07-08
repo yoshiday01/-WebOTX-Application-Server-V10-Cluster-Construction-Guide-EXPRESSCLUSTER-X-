@@ -6,9 +6,7 @@ This document describes the procedure in order to create a 2 nodes active-standb
 ## System configuration
 ### Applicable software
 OS 
-- Windows Server 2012/2012 R2/2016
-
-
+- Windows Server 2012/2012 R2/20
 
 ### Other software
 - WebOTX Application Server V10.x
@@ -169,7 +167,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 	    
        		net stop "WebOTXAS10.xAgentService"
 
-    (III)  Deletioning domain
+    (III)  Deleting domain
     
     Go to <INSTALL_ROOT> on  the command prompt and run the following command to remove the WebOTX AS domain. The environment variable JAVA_HOME must be set for the installed JDK.
         
@@ -255,17 +253,20 @@ Edit the EXPRESSCLUSTER start / stop script and set the monitoring settings.
 1. Edit start / stop script
 	- Edit the start / stop script by referring to the script resource item described in the EXPRESSCLUSTER X manual.
 - Sample script
-	- The following is a sample script resource to be registered in EXPRESSCLUSTER. Add the part in bold
+	- The following is a sample script resource to be registered in EXPRESSCLUSTER. Add the part in bold.
 - Start script
 ```
 rem *************
 rem business normal processing
 rem *************
+
 rem Start WebOTX AS domain
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin start-domain admin
+
 rem priority check
 IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
+
 rem *************
 rem Startup and recovery process after failover
 rem *************
@@ -283,8 +284,10 @@ rem Stop WebOTX AS domain
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin stop-domain --force --wait_timeout 300 domain1
 call otxadmin stop-domain --force --wait_timeout 300 admin
+
 rem priority check
 IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
+
 rem *************
 rem Startup and recovery process after failover
 rem *************
