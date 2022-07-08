@@ -23,7 +23,7 @@ Install EXPRESSCLUSTER X and WebOTX AS on each node by following the procedures 
 
 After installing EXPRESSCLUSTER X 4.x and WebOTX AS,　create a cluster by following the procedures.
 
-### Properties file for domain creation
+### Setting properties file for domain creation
 This section describes a sample of the properties file for domain creation (domain name.properties). When creating a domain, note the following:
 
 1.	Set the different port number for each domain to avoid port confliction.
@@ -33,68 +33,68 @@ This section describes a sample of the properties file for domain creation (doma
 The domain-name.properties (domain1.properties by default) is created in <INSTALL_ROOT> during installation. If you create multiple domains, copy the file for domain creation. Note the above three points, create the domain creation file, and then create the domains.
 
 - domain1.properties
-```
-domain.hostname = localhost
-domain.name = domain1						        <- Set the name of the domain
-domain.admin.user = admin 				                <- Set the domain admin user name
-domain.admin.password = adminadmin 			         	<- Set the password for the domain admin user
-domain.admin.port = 6212
-domain.admin.jmxmp.port = 6712
-domain.http.port = 80
-domain.https.port = 443
-domain.http.admin.port = 5858
-domain.http.adminrest.port = 20101
-domain.http.ajp.port = 8099
-domain.jms.port = 9700
-domain.jms.user.port = 9701
-domain.jms.admin.port = 9702
-domain.java.debugger.port = 9010
-domain.ipv6-enable = false
-domain.embedded-iiop-service.port = 7780
+<pre>
+domain.hostname = <b>localhost</b>
+domain.name = <b>domain1</b>						        <- Set the name of the domain
+domain.admin.user = <b>admin</b> 				                <- Set the domain admin user name
+domain.admin.password = <b>adminadmin</b> 			         	<- Set the password for the domain admin user
+domain.admin.port = <b>6212</b>
+domain.admin.jmxmp.port = <b>6712</b>
+domain.http.port = <b>80</b>
+domain.https.port = <b>443</b>
+domain.http.admin.port = <b>5858</b>
+domain.http.adminrest.port = <b>20101</b>
+domain.http.ajp.port = <b>8099</b>
+domain.jms.port = <b>9700</b>
+domain.jms.user.port = <b>9701</b>
+domain.jms.admin.port = <b>9702</b>
+domain.java.debugger.port = <b>9010</b>
+domain.ipv6-enable = <b>false</b>
+domain.embedded-iiop-service.port = <b>7780</b>
 
 #ObjectBroker Service Configs
-server.corba-service.oadj.Port = 9826
-server.corba-service.namesv.NameServicePort = 2809
+server.corba-service.oadj.Port = <b>9826</b>
+server.corba-service.namesv.NameServicePort = <b>2809</b>
 server.corba-service.namesv.NameServiceRoundRobin = true
-server.corba-service.oad.OadPort = 9825
+server.corba-service.oad.OadPort = <b>9825</b>
  
 ### TPMonitorManagerService Setup Properties (Standard / Enterprise Edition only) ###
-tpsystem.IIOPListener.listenerPortNumber = 5151
-tpsystem.AJPListener.listenerPortNumber = 20102
-```
+tpsystem.IIOPListener.listenerPortNumber = <b>5151</b>
+tpsystem.AJPListener.listenerPortNumber = <b>20102</b>
+</pre>
 
 - domain2.properties
-```
-domain.hostname = localhost
-domain.name = domain2 					        	<- Set the name of the domain
-domain.admin.user = admin 					        <- Set the domain admin user name
-domain.admin.password = adminadmin					<- Set the password for the domain admin user
-domain.admin.port = 16212
-domain.admin.jmxmp.port = 16712
-domain.http.port = 8081
-domain.https.port = 8443
-domain.http.admin.port = 15858
-domain.http.adminrest.port = 30101
-domain.http.ajp.port = 18099
-domain.jms.port = 19700
-domain.jms.user.port = 19701
-domain.jms.admin.port = 19702
-domain.java.debugger.port = 19010
-domain.ipv6-enable = false
-domain.embedded-iiop-service.port = 17780
+<pre>
+domain.hostname = <b>localhost</b>
+domain.name = <b>domain2</b> 					        	<- Set the name of the domain
+domain.admin.user = <b>admin</b> 					        <- Set the domain admin user name
+domain.admin.password = <b>adminadmin</b>					<- Set the password for the domain admin user
+domain.admin.port = <b>16212</b>
+domain.admin.jmxmp.port = <b>16712</b>
+domain.http.port = <b>8081</b>
+domain.https.port = <b>8443</b>
+domain.http.admin.port = <b>15858</b>
+domain.http.adminrest.port = <b>30101</b>
+domain.http.ajp.port = <b>18099</b>
+domain.jms.port = <b>19700</b>
+domain.jms.user.port = <b>19701</b>
+domain.jms.admin.port = <b>19702</b>
+domain.java.debugger.port = <b>19010</b>
+domain.ipv6-enable = <b>false</b>
+domain.embedded-iiop-service.port = <b>17780</b>
  …
 #ObjectBroker Service Configs
-server.corba-service.oadj.Port = 19826
-server.corba-service.namesv.NameServicePort = 12809
+server.corba-service.oadj.Port = <b>19826</b>
+server.corba-service.namesv.NameServicePort = <b>12809</b>
 server.corba-service.namesv.NameServiceRoundRobin = true
-server.corba-service.oad.OadPort = 19825
+server.corba-service.oad.OadPort = <b>19825</b>
  …
 ### TPMonitorManagerService Setup Properties (Standard / Enterprise Edition only) ###
-tpsystem.IIOPListener.listenerPortNumber = 15151
-tpsystem.AJPListener.listenerPortNumber = 30102
-```
+tpsystem.IIOPListener.listenerPortNumber = <b>15151</b>
+tpsystem.AJPListener.listenerPortNumber = <b>30102</b>
+</pre>
 
-### Cluster environment construction on Windows (A 2node Active-standby cluster environment)
+### Setting cluster environment construction on Windows (A 2node Active-standby cluster environment)
 This section describes the procedure for constructing a 2 node active-standby cluster environment.  
 In this procedure, the active server is defined as N1 node and the standby server as N2 node.
 ```
@@ -112,7 +112,7 @@ In this procedure, the active server is defined as N1 node and the standby serve
             Table1. sample values
 ```
 
-### EXPRESSCLUSTER initial settings
+### Setting EXPRESSCLUSTER
 Refer to the EXPRESSCLUSTER manual to set up a 2 node active-standby cluster environment. 
 #### [Reference product manual]
 - EXPRESSCLUSTER X Installation & Configuration Guide       
@@ -144,7 +144,7 @@ This guide assumes a shared disk configuration, but you can configure a mirror d
 ```
 
 
-### WebOTX AS domain creation
+### Creating WebOTX AS domain
 1. Delete WebOTX AS domain [N1, N2]  
 After installing WebOTX AS and creating the environment, delete the WebOTX AS domain once to build the cluster environment.
 
@@ -189,7 +189,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
 
     	.¥bin¥otxadmin start-domain --domaindir Z:¥domains domain1
 
-### WebOTX AS environment settings
+### Settings WebOTX AS environment  
 1. Setting the floating IP address for ObjectBroker [N1]
 
     Select [Application Server]-[ORB Config] from the tree on the left side of WebOTX Administration Tool. In the [Common] tab, change [NameServiceHostName] and [ExternalHostName] to the floating IP address (192.168.1.111).
@@ -255,35 +255,39 @@ Edit the EXPRESSCLUSTER start / stop script and set the monitoring settings.
 - Sample script
 	- The following is a sample script resource to be registered in EXPRESSCLUSTER. Add the part in bold.
 - Start script
-```
+<pre>
 rem *************
 rem "business normal processing"
 rem *************
-
+<b><i>
 rem "Start WebOTX AS domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin start-domain admin
-
+</i></b>
 rem priority check
 IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
 
 rem *************
 rem "Startup and recovery process after failover"
 rem *************
-rem "Start domain"
+
+<b>
+rem "Start domain" 
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin start-domain admin
-```
+</b></pre>
 
 - Stop script
-```
+<pre>
 rem *************
 rem "Business as usual"
 rem *************
+<b>
 rem "Stop WebOTX AS domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin stop-domain --force --wait_timeout 300 domain1
 call otxadmin stop-domain --force --wait_timeout 300 admin
+</b>
 
 rem priority check
 IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
@@ -291,13 +295,15 @@ IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
 rem *************
 rem "Startup and recovery process after failover"
 rem *************
+<b>
 rem "Shut down WebOTX AS domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin stop-domain --force --wait_timeout 300 domain1
 call otxadmin stop-domain --force --wait_timeout 300 admin
-```
+</b>
+</pre>
 
-### Definition of monitor resource for WebOTX monitoring
+### Setting monitor resource for WebOTX monitoring
 1. The following procedure configures monitoring settings using the WebOTX monitoring resource. If you have not registered the license for the WebOTX monitoring resource of EXPRESSCLUSTER X, register the license from the license manager of EXPRESSCLUSTER X. [N1, N2]
 #### [Reference product manual]
  - EXPRESSCLUSTER X Installation & Configuration Guide
