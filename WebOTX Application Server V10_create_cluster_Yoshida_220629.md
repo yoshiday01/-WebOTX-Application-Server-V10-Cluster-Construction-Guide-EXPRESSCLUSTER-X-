@@ -260,7 +260,7 @@ rem *************
 rem business normal processing
 rem *************
 
-rem Start WebOTX AS domain
+rem "Start WebOTX AS domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin start-domain admin
 
@@ -270,7 +270,7 @@ IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
 rem *************
 rem Startup and recovery process after failover
 rem *************
-rem Start domain
+rem "Start domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin start-domain admin
 ```
@@ -280,7 +280,7 @@ call otxadmin start-domain admin
 rem *************
 rem Business as usual
 rem *************
-rem Stop WebOTX AS domain
+rem "Stop WebOTX AS domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin stop-domain --force --wait_timeout 300 domain1
 call otxadmin stop-domain --force --wait_timeout 300 admin
@@ -291,7 +291,7 @@ IF "%CLP_SERVER%" == "OTHER" GOTO ON_OTHER1
 rem *************
 rem Startup and recovery process after failover
 rem *************
-rem Shut down WebOTX AS domain
+rem "Shut down WebOTX AS domain"
 set PATH=%PATH%;C:¥WebOTX¥bin
 call otxadmin stop-domain --force --wait_timeout 300 domain1
 call otxadmin stop-domain --force --wait_timeout 300 admin
