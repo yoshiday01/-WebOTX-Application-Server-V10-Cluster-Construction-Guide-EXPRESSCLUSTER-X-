@@ -5,10 +5,10 @@ This document describes the procedure in order to create a 2 nodes active-standb
 
 ## System configuration
 ### Applicable software
-OS 
+### OS
 - Windows Server 2012/2012 R2/20
 
-### Other software
+### Software
 - WebOTX Application Server V10.x
 - EXPRESSCLUSTER X 4 for Windows
 - Java SE 8/11
@@ -21,7 +21,7 @@ Install EXPRESSCLUSTER X and WebOTX AS on each node by following the procedures 
     - Chapter 4 Installing EXPRESSCLUSTER
 - WebOTX Application Server Setup Guide
 
-After installing EXPRESSCLUSTER X 4.x and WebOTX AS,　create a cluster by following the procedures.
+After installing EXPRESSCLUSTER X 4.x and WebOTX AS, create a cluster by following the procedures.
 
 ### Setting properties file for domain creation
 This section describes a sample of the properties file for domain creation (domain name.properties). When creating a domain, note the following:
@@ -246,7 +246,7 @@ After installing WebOTX AS and creating the environment, delete the WebOTX AS do
     Change the startup method of WebOTX AS 10.x Agent Service to manual on N1 and N2.
 On the [Control Panel]-[Administrative Tools]-[Services] screen, right-click WebOTX AS 10.x Agent Service, select Properties, and then change the startup type to "Manual".
 
-### About EXPRESSCLUSTER start / stop script
+### Editting EXPRESSCLUSTER start/stop script
 Edit the EXPRESSCLUSTER start / stop script and set the monitoring settings.
 1. Edit start / stop script
 	- Edit the start / stop script by referring to the script resource item described in the EXPRESSCLUSTER X manual.
