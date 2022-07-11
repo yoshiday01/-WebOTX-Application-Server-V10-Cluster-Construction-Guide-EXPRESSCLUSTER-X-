@@ -6,7 +6,7 @@ This document describes the procedure in order to create a 2 nodes active-standb
 ## System configuration
 ### Applicable software
 ### OS
-- Windows Server 2012/2012 R2/20
+- Windows Server 2012/2012 R2/2016
 
 ### Software
 - WebOTX Application Server V10.x
